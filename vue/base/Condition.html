@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!--用key管理可复用的元素-->
+    <div id="test2">
+            <template v-if="loginType === 'username'">
+                    <label>username:</label>
+                    <input placeholder="enter your name ">
+                </template>
+                <template  v-else>
+                    <label>email:</label>
+                    <input placeholder="enter you email">
+                </template>
+    </div>
+    <!--在template上使用v-if,最终渲染结果不包括template-->
+        <template v-if="ok">
+                <h1>Title</h1>
+                <p>Paragraph 1</p>
+                <p>Paragraph 2</p>
+              </template>    
+    <!--v-if 指令用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 truthy 值的时候被渲染。-->
+        <h1 id="test1" v-if="awesome">Vue is awesome!</h1>
+        <!--还有v-else-if-->
+        <h1 id="test1" v-else>Oh no 😢</h1>
+        <script src="Condition.js"></script>
+</body>
+</html>

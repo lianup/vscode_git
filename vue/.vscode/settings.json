@@ -1,0 +1,20 @@
+{
+"search.followSymlinks": false,
+"emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"  
+},
+
+"eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue"
+],
+
+"eslint.options": {
+    "plugins": ["html"]
+
+
+}
+}

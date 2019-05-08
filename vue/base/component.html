@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--通过slot分发内容-->
+    <div id="example2">
+            <alert-box>something happend!</alert-box>
+    </div>
+    <script>
+    Vue.component('alert-box', {
+  template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+})
+    new Vue({el: '#example2'})
+    </script>
+    <!--component
+    组件是可复用的 Vue 实例，且带有一个名字：
+    data 必须是一个函数
+    可通过 Prop 向子组件传递数据-->
+    <div id="components-demo2">
+            <blog-post title="hello"></blog-post>
+    </div>
+    <script>      
+        Vue.component('blog-post', {
+         props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+    })    
+    new Vue({ el: '#components-demo2' })
+        </script>
+</body>
+</html>
