@@ -9,7 +9,12 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
+<<<<<<< HEAD
 #include <cstring>
 #include <iostream>
 #include <sys/epoll.h>
+=======
+#include <string.h>
+#include <iostream>
+>>>>>>> de84da81adf85044106848d2f40bdaf3b6bfb903
 #endif

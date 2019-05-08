@@ -1,11 +1,14 @@
 #include "header.h"
 #include "lst_timer.h"
+<<<<<<< HEAD
 // #include <sys/epoll.h>
 // #include <signal.h>
 using namespace std;
 /**
  * 使用alarm函数周期性地出发SIGALRM信号,关闭非活动的链接
  */
+=======
+>>>>>>> de84da81adf85044106848d2f40bdaf3b6bfb903
 
 /**
  * 使用alarm函数周期性地出发SIGALRM信号,关闭非活动的链接
@@ -16,6 +19,7 @@ int const MAX_EVENT_NUMBER = 1024;
 int const TIMESLOT = 5;
 static int pipefd[2];
 
+<<<<<<< HEAD
 /*利用链表来管理定时器*/
 static sort_timer_lst timer_list;
 static int epollfd = 0;
@@ -255,3 +259,7 @@ int main(int argc, char* argv[])
     delete[] users;
     return 0;
 }
+=======
+
+
+>>>>>>> de84da81adf85044106848d2f40bdaf3b6bfb903
