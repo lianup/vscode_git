@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1555204714 source:/home/lianup/cpp/codeblock/Test2/Test2/main.cpp
+	<iostream>
+
+1555203988 source:/home/lianup/cpp/codeblock/Test2/Test2/StrVec.cpp
+	"StrVec.h"
+	<utility>
+
+1555204169 /home/lianup/cpp/codeblock/Test2/Test2/StrVec.h
+	<string>
+	<memory>
+	<iostream>
+	<new>
+
+1555202781 source:/home/lianup/cpp/codeblock/Test2/Test2/Untitled1.c
+
+1555204738 source:/home/lianup/cpp/codeblock/Test2/Test2/Untitled9.cpp
+

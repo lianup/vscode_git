@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+    <title>Document</title>
+</head>
+<body>
+
+
+        <!--测试v-bind style,数组语法,绑定多个对象,这个我没实际写vue-->
+        <div id = "test3" v-bind:style="[baseStyles, overridingStyles]">
+                <p>hello4</p>
+            </div>
+
+        <!--测试v-bind style,直接绑定一个样式对象-->
+    <div id = "test3" v-bind:style="styleObject">
+            <p>hello2</p>
+        </div>
+
+    <!--测试v-bind style
+    CSS 属性名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用单引号括起来) 来命名-->
+    <div id = "test2" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px'}">
+        <p>hello</p>
+    </div>
+
+    <!--测试v-bind class-->
+    <div id="test1" v-bind:class="classObject"></div>
+    <script src="ClassBindStyle.js"></script>      
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <div id="watch-example">
+                <p>
+                  Ask a yes/no question:
+                  <input v-model="question">
+                </p>
+                <p>{{ answer }}</p>
+              </div>
+
+    <div id="vm1">
+        <p>original message:"{{message}}"</p>
+        <p>reverse messgae:"{{reverseMessage}}"</p>
+    </div>
+    <script src="compute.js"></script>    
+</body>
+</html>

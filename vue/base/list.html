@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+     <!--v-for - 一个对象-->
+     <ul id="v-for-object">
+            <li v-for="(name,value) in object">
+               {{name}} : {{ value }}
+            </li>
+        </ul>   
+    <!--v-for - 1-->
+    <ul id="example-1">
+        <!--可以用 of 代替 in,为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素-->
+        <li v-for="item in items" v-bind:key="item.id">
+            {{ item.message }}
+        </li>
+    </ul>
+    <script src="list.js"></script>
+</body>
+</html>
