@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <exception>
 #include <pthread.h>
+#include <iostream>
 #include "../chapter14/locker.h"
 
 /* 半同步/半反应堆线程池的实现:更高效,添加一个工作队列,工作县城从队列中取得任务.不用
@@ -29,7 +30,7 @@ private:
     void run();
 
 public:
-    threadpool( int thread_number = 0, int max_request = 10000 );
+    threadpool( int thread_number = 2, int max_request = 10000 );
     ~threadpool();
     /* 往请求队列中添加任务 */
     bool append( T *requst );
@@ -41,9 +42,9 @@ threadpool< T >::threadpool( int thread_number, int max_request ) :
     m_thread_number( thread_number ), m_max_requst( max_request ),
     m_stop( false ), m_threads( NULL ) 
     {
-        if( ( thread_number <= 0 ) || max_requst <= 0 )
+        if( ( thread_number <= 0 ) || max_request <= 0 )
         {
-            throw std::exception;
+            throw std::exception();
         }
         m_threads = new pthread_t[ thread_number ];
         if( !m_threads )
@@ -54,7 +55,7 @@ threadpool< T >::threadpool( int thread_number, int max_request ) :
         /* 创建 thread_number 个线程,并将它们都设置为脱离函数 */
         for( int i = 0; i < thread_number; ++i )
         {
-            cout << "create the " << i << " thread" <<  endl;
+            std::cout << "create the " << i << " thread" <<  std::endl;
             if( pthread_create( m_threads + i, NULL, worker, this ) != 0 )
             {
                 delete [] m_threads;
@@ -83,13 +84,13 @@ bool threadpool< T >::append( T *request )
 {
     /* 操作工作队列时必须加锁 */
     m_queuelocker.lock();
-    if( ( m_workqueue.size >= m_max_requst ) )
+    if( ( m_workqueue.size() >= m_max_requst ) )
     {
-        m_queuelocker.unlock;
+        m_queuelocker.unlock();
         return false;
     }
     m_workqueue.push_back( request );
-    m_queuelocker.unlock;
+    m_queuelocker.unlock();
     /* 增加信号量, V 操作 ? */
     m_queuestat.post();
     return true;
@@ -106,7 +107,7 @@ void* threadpool< T >::worker( void *arg )
 
 /* 工作线程的 run 函数: 把工作队列中的任务取出来运行 */
 template< typename T >
-void* threadpool< T >::run()
+void threadpool< T >::run()
 {
     while( !m_stop )
     {
@@ -124,7 +125,7 @@ void* threadpool< T >::run()
         {
             continue;
         }
-        requst->process();
+        request->process();
     }
 }
-#endif // !THREADPOOL_H#define THREADPOOL_H
+#endif // !THREADPOOL_H#define THREADPOOL_H 
